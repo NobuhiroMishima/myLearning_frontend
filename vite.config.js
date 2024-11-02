@@ -1,18 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import fs from 'fs'
 
-// https://vitejs.dev/config/
+const copyTargets = fs.existsSync('server/uploads') 
+  ? [{ src: 'server/uploads', dest: 'server' }]
+  : []
+
 export default defineConfig({
   plugins: [
     react(),
     viteStaticCopy({
-      targets: [
-        {
-          src: 'server/uploads',
-          dest: 'server'
-        },
-      ]
+      targets: copyTargets
     })
   ],
   server: {
