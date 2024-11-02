@@ -19,7 +19,7 @@ const Card = ({ movie }) => {
         }
       </div>
       <div className="movie__img">
-        <img src={`/server/${movie.img}`} alt={movie.title} />
+        <img src={`/dist/server${movie.img}`} alt={movie.title} />
       </div>
       <div className="movie__instructor">
         <p className="movie__instructor__title">動画作成者</p>
